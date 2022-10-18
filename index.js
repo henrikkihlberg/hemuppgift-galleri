@@ -14,8 +14,8 @@ buttons.forEach(button => {
     })
 })
 
-const fetchImages = () => {
-    fetch('http://localhost:3000/images')
+const fetchRivers = () => {
+    fetch('http://localhost:3000/rivers')
     .then(response => {
         // console.log(response)
         if (!response.ok) {
@@ -26,7 +26,7 @@ const fetchImages = () => {
     .then(data => {
         console.log(data.photos)
         data.photos.photo.forEach(image => {
-            document.querySelector("#image_carousel").insertAdjacentHTML("afterbegin",
+            document.querySelector("#rivers_carousel").insertAdjacentHTML("afterbegin",
             `
                 <li class="slide">
                     <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
@@ -40,4 +40,32 @@ const fetchImages = () => {
         console.log(error)
     })
 }
-fetchImages()
+fetchRivers()
+
+const fetchForests = () => {
+    fetch('http://localhost:3000/forests')
+    .then(response => {
+        // console.log(response)
+        if (!response.ok) {
+            throw Error('ERROR')
+        }
+        return response.json()
+    })
+    .then(data => {
+        console.log(data.photos)
+        data.photos.photo.forEach(image => {
+            document.querySelector("#forests_carousel").insertAdjacentHTML("afterbegin",
+            `
+                <li class="slide">
+                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
+                </li>
+            `
+            )
+        })
+       
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+fetchForests()
