@@ -1,8 +1,18 @@
-console.log('HEJSAN')
+const buttons =  document.querySelectorAll("[data-carousel-button]")
 
-const setCookie = () => {
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1
+        const slides = button.closest("[data-carousel]").querySelector("[data-slides]")
+        const activeSlide = slides.querySelector("[data-active]")
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset
+        if (newIndex < 0) newIndex = slides.children.length - 1
+        if (newIndex >= slides.children.length) newIndex = 0
 
-}
+        slides.children[newIndex].dataset.active = true
+        delete activeSlide.dataset.active
+    })
+})
 
 const fetchImages = () => {
     fetch('http://localhost:3000/images')
@@ -31,24 +41,3 @@ const fetchImages = () => {
     })
 }
 fetchImages()
-
-
-
-const loop = (data) => {
-    const gallery = document.createDocumentFragment()
-
-    data.map()
-}
-
-// var imageLibrary
-
-// fetch('http://localhost:3000/images')
-// .then((response) => response.json())
-// .then((data) => imageLibrary = data.photos.photo)
-// .then(() => console.log(imageLibrary))
-
-// imageLibrary.photos.photo?.[1]
-
-// let loop = imageLibrary.map((image) => {
-//     console.log(image)
-// })
