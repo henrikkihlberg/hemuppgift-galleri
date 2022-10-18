@@ -88,10 +88,23 @@ img {
     right: 1rem;
 }
 
+.logo-container {
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
 @media screen and (max-width: 600px) {
     .carousel {
         width: 90vw;
         height: 25vh;  
+    }
+
+    .logo {
+        max-width: 30vw;
+        height: auto; 
     }
 }
 
@@ -100,12 +113,22 @@ img {
         width: 50vw;
         height: 30vh;  
     }
+
+    .logo {
+        max-width: 25vw;
+        height: auto; 
+    }
 }
 
 @media screen and (min-width: 768px) {
     .carousel {
         width: 40vw;
         height: 30vh;  
+    }
+    
+    .logo {
+        max-width: 20vw;
+        height: auto; 
     }
 }
 
@@ -114,11 +137,21 @@ img {
         width: 40vw;
         height: 30vh;  
     }
+
+    .logo {
+        max-width: 15vw;
+        height: auto; 
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .carousel {
         width: 40vw;
         height: 30vh;  
+    }
+
+    .logo {
+        max-width: 10vw;
+        height: auto; 
     }
 }
