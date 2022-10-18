@@ -69,3 +69,31 @@ const fetchForests = () => {
     })
 }
 fetchForests()
+
+const fetchMountains = () => {
+    fetch('http://localhost:3000/mountains')
+    .then(response => {
+        // console.log(response)
+        if (!response.ok) {
+            throw Error('ERROR')
+        }
+        return response.json()
+    })
+    .then(data => {
+        console.log(data.photos)
+        data.photos.photo.forEach(image => {
+            document.querySelector("#mountains_carousel").insertAdjacentHTML("afterbegin",
+            `
+                <li class="slide">
+                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
+                </li>
+            `
+            )
+        })
+       
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+fetchMountains()
