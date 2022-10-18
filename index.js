@@ -97,3 +97,32 @@ const fetchMountains = () => {
     })
 }
 fetchMountains()
+
+const fetchNature = () => {
+    fetch('http://localhost:3000/nature')
+    .then(response => {
+        // console.log(response)
+        if (!response.ok) {
+            throw Error('ERROR')
+        }
+        return response.json()
+    })
+    .then(data => {
+        const pictures = data.photos.photo
+        // console.log(pictures)
+        const randomPicture = Math.floor(Math.random() * pictures.length)
+        // console.log(pictures[randomPicture].id)
+        document.querySelector("#random-picture").insertAdjacentHTML("afterbegin",
+            `
+                
+                <img src="https://live.staticflickr.com/${pictures[randomPicture].server}/${pictures[randomPicture].id}_${pictures[randomPicture].secret}.jpg" alt="River Image" />
+                <div>${pictures[randomPicture].title}</div>
+                
+            `
+        )       
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+fetchNature()
