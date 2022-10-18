@@ -114,10 +114,10 @@ const fetchNature = () => {
         // console.log(pictures[randomPicture].id)
         document.querySelector("#random-picture").insertAdjacentHTML("afterbegin",
             `
-                
-                <img src="https://live.staticflickr.com/${pictures[randomPicture].server}/${pictures[randomPicture].id}_${pictures[randomPicture].secret}.jpg" alt="River Image" />
-                <div>${pictures[randomPicture].title}</div>
-                
+            <p>
+                <img src="https://live.staticflickr.com/${pictures[randomPicture].server}/${pictures[randomPicture].id}_${pictures[randomPicture].secret}.jpg" alt="Random Image" />
+            </p>
+                <div class="random-picture-description">${pictures[randomPicture].title}</div>
             `
         )       
     })
