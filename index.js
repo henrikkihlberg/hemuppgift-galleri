@@ -15,17 +15,18 @@ const fetchImages = () => {
     })
     .then(data => {
         console.log(data.photos)
-        const html = data.photos.photo.map(image => {
-            return `
-                <div class="image">
-                    <p>
-                        <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" />
-                    </p>
-                </div>
+        data.photos.photo.forEach(image => {
+            document.querySelector("#image_carousel").insertAdjacentHTML("afterbegin",
             `
+            <div class="image">
+                <p>
+                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" />
+                </p>
+            </div>
+        `
+            )
         })
-        console.log(html)
-        document.querySelector("#image_carousel").insertAdjacentHTML("afterbegin", html)
+       
     })
     .catch(error => {
         console.log(error)
