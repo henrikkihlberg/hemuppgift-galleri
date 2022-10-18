@@ -18,12 +18,10 @@ const fetchImages = () => {
         data.photos.photo.forEach(image => {
             document.querySelector("#image_carousel").insertAdjacentHTML("afterbegin",
             `
-            <div class="image">
-                <p>
-                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" />
-                </p>
-            </div>
-        `
+                <li class="slide">
+                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
+                </li>
+            `
             )
         })
        
