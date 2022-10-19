@@ -15,7 +15,7 @@ buttons.forEach(button => {
 })
 
 const fetchRivers = () => {
-    fetch('http://localhost:3000/rivers')
+    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/rivers')
     .then(response => {
         // console.log(response)
         if (!response.ok) {
@@ -43,7 +43,7 @@ const fetchRivers = () => {
 fetchRivers()
 
 const fetchForests = () => {
-    fetch('http://localhost:3000/forests')
+    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/forests')
     .then(response => {
         // console.log(response)
         if (!response.ok) {
@@ -71,7 +71,7 @@ const fetchForests = () => {
 fetchForests()
 
 const fetchMountains = () => {
-    fetch('http://localhost:3000/mountains')
+    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/mountains')
     .then(response => {
         // console.log(response)
         if (!response.ok) {
@@ -99,7 +99,7 @@ const fetchMountains = () => {
 fetchMountains()
 
 const fetchNature = () => {
-    fetch('http://localhost:3000/nature')
+    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/nature')
     .then(response => {
         // console.log(response)
         if (!response.ok) {
