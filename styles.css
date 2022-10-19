@@ -34,6 +34,11 @@ img {
     align-items: center;
 }
 
+.carousel_image {
+    display: flex;
+    justify-content: center;
+}
+
 .carousel > ul {
     margin: 0;
     padding: 0;
