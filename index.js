@@ -16,12 +16,12 @@ buttons.forEach(button => {
 
 const riverInfo = {
     param: 'rivers',
-    tags: 'river',
     selector: '#rivers_carousel'
 }
 
 const fetchRivers = () => {
-    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/rivers')
+    console.log(riverInfo)
+    fetch(`https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/${riverInfo.param}`)
     .then(response => {
         // console.log(response)
         if (!response.ok) {
@@ -32,7 +32,7 @@ const fetchRivers = () => {
     .then(data => {
         console.log(data.photos)
         data.photos.photo.forEach(image => {
-            document.querySelector("#rivers_carousel").insertAdjacentHTML("afterbegin",
+            document.querySelector(riverInfo.selector).insertAdjacentHTML("afterbegin",
             `
                 <li class="slide">
                     <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
@@ -44,10 +44,10 @@ const fetchRivers = () => {
     .catch(error => {
         console.log(error)
         let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
-        document.getElementById("rivers_carousel").innerHTML = randomPictureError
+        document.getElementById(riverInfo.selector).innerHTML = randomPictureError
     })
 }
-fetchRivers()
+fetchRivers(riverInfo)
 
 const fetchForests = () => {
     fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/forests')
