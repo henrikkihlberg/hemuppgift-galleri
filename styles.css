@@ -118,6 +118,11 @@ img {
     .carousel {
         width: 90vw;
         height: 25vh;
+        position: relative;
+        margin: 1%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         /* margin-top:35px;
         margin-bottom:40px; */
     }
