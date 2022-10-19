@@ -34,11 +34,6 @@ img {
     align-items: center;
 }
 
-.carousel_image {
-    display: flex;
-    justify-content: center;
-}
-
 .carousel > ul {
     margin: 0;
     padding: 0;
@@ -132,6 +127,16 @@ img {
         align-items: center;
         /* margin-top:35px;
         margin-bottom:40px; */
+    }
+
+    .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: 200ms opacity ease-in-out;
+        transition-delay: 200ms;
+        display: flex;
+        align-self: center;
     }
 
     .logo {
