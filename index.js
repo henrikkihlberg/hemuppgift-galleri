@@ -8,13 +8,12 @@ buttons.forEach(button => {
         let newIndex = [...slides.children].indexOf(activeSlide) + offset
         if (newIndex < 0) newIndex = slides.children.length - 1
         if (newIndex >= slides.children.length) newIndex = 0
-
         slides.children[newIndex].dataset.active = true
         delete activeSlide.dataset.active
     })
 })
 
-const imageFetch = () => {
+const getImages = () => {
     var imageFetchData = [
         {param: 'forests', selector: '#forests_carousel', element: 'forests_carousel'},
         {param: 'rivers', selector: '#rivers_carousel', element: 'rivers_carousel'},
@@ -49,9 +48,9 @@ const imageFetch = () => {
         })
     })
 }
-imageFetch()
+getImages()
 
-const fetchNature = () => {
+const getRandomPicture = () => {
     let loader = `<div>Loading random picture...</div>`
     document.getElementById('random-picture').innerHTML = loader
     fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/nature')
@@ -80,4 +79,4 @@ const fetchNature = () => {
         document.getElementById("random-picture").innerHTML = randomPictureError
     })
 }
-fetchNature()
+getRandomPicture()
