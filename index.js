@@ -99,6 +99,8 @@ const fetchMountains = () => {
 fetchMountains()
 
 const fetchNature = () => {
+    let loader = `<div>Loading random picture...</div>`
+    document.getElementById('random-picture').innerHTML = loader
     fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/nature')
     .then(response => {
         // console.log(response)
@@ -111,16 +113,17 @@ const fetchNature = () => {
         const pictures = data.photos.photo
         // console.log(pictures)
         const randomPicture = Math.floor(Math.random() * pictures.length)
+        const randomPictureCode = `
+        <img src="https://live.staticflickr.com/${pictures[randomPicture].server}/${pictures[randomPicture].id}_${pictures[randomPicture].secret}.jpg" alt="Random Image" class="random-picture-image"/>
+        <div class="random-picture-description">${pictures[randomPicture].title}</div>
+    `
         // console.log(pictures[randomPicture].id)
-        document.querySelector("#random-picture").insertAdjacentHTML("afterbegin",
-            `
-                <img src="https://live.staticflickr.com/${pictures[randomPicture].server}/${pictures[randomPicture].id}_${pictures[randomPicture].secret}.jpg" alt="Random Image" class="random-picture-image"/>
-                <div class="random-picture-description">${pictures[randomPicture].title}</div>
-            `
-        )       
+        document.getElementById("random-picture").innerHTML = randomPictureCode
     })
     .catch(error => {
         console.log(error)
+        let randomPictureError = `<div>Failed to fetch random picture. Error : ${error}</div>`
+        document.getElementById("random-picture").innerHTML = randomPictureError
     })
 }
 fetchNature()
