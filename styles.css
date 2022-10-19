@@ -114,7 +114,8 @@ img {
 @media screen and (max-width: 600px) {
     .carousel {
         width: 90vw;
-        height: 25vh;  
+        height: 25vh;
+        margin: 20px;
     }
 
     .logo {
@@ -135,7 +136,8 @@ img {
 @media screen and (min-width: 600px) {
     .carousel {
         width: 50vw;
-        height: 30vh;  
+        height: 30vh;
+        margin: 20px;
     }
 
     .logo {
@@ -152,7 +154,8 @@ img {
 @media screen and (min-width: 768px) {
     .carousel {
         width: 40vw;
-        height: 30vh;  
+        height: 30vh;
+        margin: 20px;
     }
     
     .logo {
@@ -169,7 +172,8 @@ img {
 @media screen and (min-width: 992px) {
     .carousel {
         width: 40vw;
-        height: 30vh;  
+        height: 30vh;
+        margin: 10px;
     }
 
     .logo {
@@ -186,7 +190,8 @@ img {
 @media screen and (min-width: 1200px) {
     .carousel {
         width: 40vw;
-        height: 30vh;  
+        height: 30vh;
+        margin: 10px;  
     }
 
     .logo {
