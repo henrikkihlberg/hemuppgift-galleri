@@ -14,14 +14,16 @@ buttons.forEach(button => {
     })
 })
 
-const riverInfo = {
-    param: 'rivers',
-    selector: '#rivers_carousel'
-}
+const imageFetch = () => {
+var imageFetchData = [
+        {param: 'forests', selector: '#forests_carousel', element: 'forests_carousel'},
+        {param: 'rivers', selector: '#rivers_carousel', element: 'rivers_carousel'},
+        {param: 'mountains', selector: '#mountains_carousel', element: 'rivers_carousel'}
+    ]
 
-const fetchRivers = () => {
-    console.log(riverInfo)
-    fetch(`https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/${riverInfo.param}`)
+    imageFetchData.forEach((info) => {
+        console.log(info)
+    fetch(`https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/${info.param}`)
     .then(response => {
         // console.log(response)
         if (!response.ok) {
@@ -32,10 +34,10 @@ const fetchRivers = () => {
     .then(data => {
         console.log(data.photos)
         data.photos.photo.forEach(image => {
-            document.querySelector(riverInfo.selector).insertAdjacentHTML("afterbegin",
+            document.querySelector(info.selector).insertAdjacentHTML("afterbegin",
             `
                 <li class="slide">
-                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
+                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="Image" />
                 </li>
             `
             )
@@ -44,68 +46,11 @@ const fetchRivers = () => {
     .catch(error => {
         console.log(error)
         let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
-        document.getElementById(riverInfo.selector).innerHTML = randomPictureError
+        document.getElementById(info.element).innerHTML = randomPictureError
+    })
     })
 }
-fetchRivers(riverInfo)
-
-const fetchForests = () => {
-    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/forests')
-    .then(response => {
-        // console.log(response)
-        if (!response.ok) {
-            throw Error('ERROR')
-        }
-        return response.json()
-    })
-    .then(data => {
-        console.log(data.photos)
-        data.photos.photo.forEach(image => {
-            document.querySelector("#forests_carousel").insertAdjacentHTML("afterbegin",
-            `
-                <li class="slide">
-                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
-                </li>
-            `
-            )
-        })
-    })
-    .catch(error => {
-        console.log(error)
-        let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
-        document.getElementById("forests_carousel").innerHTML = randomPictureError
-    })
-}
-fetchForests()
-
-const fetchMountains = () => {
-    fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/mountains')
-    .then(response => {
-        // console.log(response)
-        if (!response.ok) {
-            throw Error('ERROR')
-        }
-        return response.json()
-    })
-    .then(data => {
-        console.log(data.photos)
-        data.photos.photo.forEach(image => {
-            document.querySelector("#mountains_carousel").insertAdjacentHTML("afterbegin",
-            `
-                <li class="slide">
-                    <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="River Image" />
-                </li>
-            `
-            )
-        })
-    })
-    .catch(error => {
-        console.log(error)
-        let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
-        document.getElementById("mountains_carousel").innerHTML = randomPictureError
-    })
-}
-fetchMountains()
+imageFetch()
 
 const fetchNature = () => {
     let loader = `<div>Loading random picture...</div>`
