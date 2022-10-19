@@ -74,8 +74,7 @@ img {
     background-color: rgba(0, 0, 0, .1)
 }
 
-.carousel-button:hover,
-.carousel-button:focus {
+.carousel-button:hover{
     color: white;
     background-color: rgba(0, 0, 0, .4);
 }
