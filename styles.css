@@ -129,16 +129,6 @@ img {
         margin-bottom:40px; */
     }
 
-    .slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition: 200ms opacity ease-in-out;
-        transition-delay: 200ms;
-        display: flex;
-        align-self: center;
-    }
-
     .logo {
         max-width: 30vw;
         height: auto; 
