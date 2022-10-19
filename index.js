@@ -14,6 +14,12 @@ buttons.forEach(button => {
     })
 })
 
+const riverInfo = {
+    param: 'rivers',
+    tags: 'river',
+    selector: '#rivers_carousel'
+}
+
 const fetchRivers = () => {
     fetch('https://hemuppgift-api-wopwb5vhiq-lz.a.run.app/rivers')
     .then(response => {
@@ -33,8 +39,7 @@ const fetchRivers = () => {
                 </li>
             `
             )
-        })
-       
+        }) 
     })
     .catch(error => {
         console.log(error)
