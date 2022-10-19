@@ -38,6 +38,8 @@ const fetchRivers = () => {
     })
     .catch(error => {
         console.log(error)
+        let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
+        document.getElementById("rivers_carousel").innerHTML = randomPictureError
     })
 }
 fetchRivers()
@@ -62,10 +64,11 @@ const fetchForests = () => {
             `
             )
         })
-       
     })
     .catch(error => {
         console.log(error)
+        let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
+        document.getElementById("forests_carousel").innerHTML = randomPictureError
     })
 }
 fetchForests()
@@ -90,10 +93,11 @@ const fetchMountains = () => {
             `
             )
         })
-       
     })
     .catch(error => {
         console.log(error)
+        let randomPictureError = `<div>Failed to fetch pictures. Error : ${error}</div>`
+        document.getElementById("mountains_carousel").innerHTML = randomPictureError
     })
 }
 fetchMountains()
