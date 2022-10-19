@@ -1,6 +1,6 @@
-*, *::before, *::after {
+/* *, *::before, *::after {
     box-sizing: border-box;
-}
+} */
 
 body {
     margin: 0;
@@ -17,7 +17,6 @@ img {
     flex-direction: column;
     justify-content: center;
     margin-top: 15px;
-    gap: 12px;
 }
 
 .gallery {
@@ -29,7 +28,7 @@ img {
     width: 35vw;
     height: 30vh;
     position: relative;
-    margin: 10px;
+    margin: 1%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,8 +118,8 @@ img {
     .carousel {
         width: 90vw;
         height: 25vh;
-        margin-top:35px;
-        margin-bottom:40px;
+        /* margin-top:35px;
+        margin-bottom:40px; */
     }
 
     .logo {
@@ -142,7 +141,7 @@ img {
     .carousel {
         width: 50vw;
         height: 30vh;
-        margin: 20px;
+        /* margin: 20px; */
     }
 
     .logo {
@@ -160,7 +159,7 @@ img {
     .carousel {
         width: 40vw;
         height: 30vh;
-        margin: 20px;
+        /* margin: 20px; */
     }
     
     .logo {
@@ -182,7 +181,7 @@ img {
     .carousel {
         width: 40vw;
         height: 30vh;
-        margin: 10px;
+        /* margin: 10px; */
     }
 
     .logo {
@@ -200,7 +199,7 @@ img {
     .carousel {
         width: 40vw;
         height: 30vh;
-        margin: 10px;  
+        /* margin: 10px;   */
     }
 
     .logo {
