@@ -116,7 +116,7 @@ img {
         width: 90vw;
         height: 25vh;
         margin-top:35px;
-        margin-bottom:35px;
+        margin-bottom:40px;
     }
 
     .logo {
@@ -162,6 +162,10 @@ img {
     .logo {
         max-width: 20vw;
         height: auto; 
+    }
+
+    .logo-container {
+        margin: 10px;
     }
 
     .random-picture-image {
