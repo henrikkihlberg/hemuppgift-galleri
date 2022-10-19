@@ -63,7 +63,7 @@ img {
 }
 
 .carousel-button {
-    position: absolute;
+    position: relative;
     z-index: 2;
     background: none;
     border: none;
