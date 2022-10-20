@@ -50,7 +50,7 @@ const getImages = () => {
             "afterbegin",
             `
                     <li class="slide">
-                        <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt="Image" />
+                        <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt=" ${param} image" />
                     </li>
                 `
           );
