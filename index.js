@@ -1,17 +1,24 @@
-const buttons =  document.querySelectorAll("[data-carousel-button]")
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const offset = button.dataset.carouselButton === "next" ? 1 : -1
-        const slides = button.closest("[data-carousel]").querySelector("[data-slides]")
-        const activeSlide = slides.querySelector("[data-active]")
-        let newIndex = [...slides.children].indexOf(activeSlide) + offset
-        if (newIndex < 0) newIndex = slides.children.length - 1
-        if (newIndex >= slides.children.length) newIndex = 0
-        slides.children[newIndex].dataset.active = true
-        delete activeSlide.dataset.active
+const createButtons = () => {
+    const buttons =  document.querySelectorAll("[data-carousel-button]")
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const offset = button.dataset.carouselButton === "next" ? 1 : -1
+            const slides = button.closest("[data-carousel]").querySelector("[data-slides]")
+            const activeSlide = slides.querySelector("[data-active]")
+            let newIndex = [...slides.children].indexOf(activeSlide) + offset
+            if (newIndex < 0) newIndex = slides.children.length - 1
+            if (newIndex >= slides.children.length) newIndex = 0
+            slides.children[newIndex].dataset.active = true
+            delete activeSlide.dataset.active
+        })
     })
-})
+}
+
+if(typeof window !== 'undefined') {
+    createButtons()
+}
 
 const getImages = () => {
     var imageFetchData = [
@@ -30,7 +37,7 @@ const getImages = () => {
             return response.json()
         })
         .then(data => {
-            // console.log(data.photos)
+            console.log(data)
             data.photos.photo.forEach(image => {
                 document.querySelector(info.selector).insertAdjacentHTML("afterbegin",
                 `
@@ -48,7 +55,10 @@ const getImages = () => {
         })
     })
 }
-getImages()
+
+if(typeof window !== 'undefined') {
+    getImages()
+}
 
 const getRandomPicture = () => {
     let loader = `<div>Loading random picture...</div>`
@@ -79,4 +89,9 @@ const getRandomPicture = () => {
         document.getElementById("random-picture").innerHTML = randomPictureError
     })
 }
-getRandomPicture()
+
+if(typeof window !== 'undefined') {
+    getRandomPicture()
+}
+
+module.exports = getImages
