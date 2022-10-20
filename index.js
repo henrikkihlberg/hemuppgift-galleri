@@ -44,13 +44,13 @@ const getImages = () => {
         return response.json();
       })
       .then((data) => {
-        // console.log(data.photos)
+        console.log(data.photos)
         data.photos.photo.forEach((image) => {
           document.querySelector(info.selector).insertAdjacentHTML(
             "afterbegin",
             `
                     <li class="slide">
-                        <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt=" ${param} image" />
+                        <img src="https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg" alt=" ${info.title} image" />
                     </li>
                 `
           );
